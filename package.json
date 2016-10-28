@@ -23,4 +23,7 @@
       "contact": "sean@zoyi.co"
     }
   ],
+  "devDependencies": {
+    "babel-cli": "^6.18.0"
+  }
 }
