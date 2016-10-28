@@ -1,0 +1,26 @@
+{
+  "name": "dom-storage",
+  "version": "1.0.0",
+  "main": "./index.js",
+  "dependencies": {
+    "moment": "^2.13.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zoyi/lib-dom-storage#master"
+  },
+  "contributors": [
+    {
+      "name": "Engine",
+      "contact": "enginehenryed@gmail.com"
+    },
+    {
+      "name": "Luan",
+      "contact": "luan@zoyi.co"
+    },
+    {
+      "name": "Sean",
+      "contact": "sean@zoyi.co"
+    }
+  ],
+}
