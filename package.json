@@ -1,13 +1,17 @@
 {
-  "name": "dom-storage",
+  "name": "awesome-domstorage",
   "version": "1.0.0",
-  "main": "./index.js",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "npm run clean && babel src -d lib --sourceMaps 'both'",
+    "clean": "rm -rf ./lib"
+  },
   "dependencies": {
     "moment": "^2.13.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zoyi/lib-dom-storage#master"
+    "url": "https://github.com/zoyi/awesome-domstorage#master"
   },
   "contributors": [
     {
@@ -24,6 +28,8 @@
     }
   ],
   "devDependencies": {
-    "babel-cli": "^6.18.0"
+    "babel-cli": "^6.18.0",
+    "babel-plugin-remove-comments": "^2.0.0",
+    "babel-preset-latest": "^6.16.0"
   }
 }
