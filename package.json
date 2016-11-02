@@ -1,6 +1,6 @@
 {
   "name": "awesome-domstorage",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "./lib/index.js",
   "scripts": {
     "build": "npm run clean && babel src -d lib --sourceMaps 'both'",
@@ -16,15 +16,15 @@
   "contributors": [
     {
       "name": "Engine",
-      "contact": "enginehenryed@gmail.com"
+      "email": "enginehenryed@gmail.com"
     },
     {
       "name": "Luan",
-      "contact": "luan@zoyi.co"
+      "email": "luan@zoyi.co"
     },
     {
       "name": "Sean",
-      "contact": "sean@zoyi.co"
+      "email": "sean@zoyi.co"
     }
   ],
   "devDependencies": {
