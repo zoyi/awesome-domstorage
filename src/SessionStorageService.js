@@ -2,7 +2,6 @@
  * SessionStorageService provides an abstraction for Web storage (Dom storage) of a web browser.
  * The difference with LocalStorageService is the storage handled.
  *
- * _init has all the key-value pairs that should be initialized at application loading.
  * Knowing that Web Storage is of only a single layer structure, this service
  * helps nested structuring of key-value pairs by filling dashes in-between.
  *
@@ -25,21 +24,17 @@
  * its own temporary storage object to store the configuration. Temporary storage
  * expires every time the web page is refreshed, though.
  *
- * NAME is prefixed for each key in order to avoid potential conflicts.
+ * setPrefix() to set prefix for each key in order to avoid potential conflicts.
  * e.g. Using the aforementioned example, 'key1-foo' is prefixed with 'myApp'
  *       'myApp-key1-foo' = false
  *       ...
  *
  * Since Oct 2016.
- * Worked by Engine engine@zoyi.co Luan luan@zoyi.co, Sean sean@zoyi.co
+ * Written by Engine enginehenryed@gmail.com, Luan luan@zoyi.co, Sean sean@zoyi.co
  */
 
 import moment from 'moment'
 
-/**
- * Name of the wrapper, used in order to avoid collision in namespace.
- */
-const NAME = 'ch-plugin'
 
 /**
  * Object to be used when the web storage is not available, e.g. secret mode in Safari.
@@ -50,14 +45,20 @@ class SessionStorageService {
 
   constructor() {
     this.isEnabled = false
-    this._checkSanity()
+    this.prefix = ''
   }
 
   /**********************************************
    * Public methods
    **********************************************/
 
-  init(obj) {
+  init(obj, prefix) {
+    if (prefix) {
+      this.setPrefix(prefix)
+    }
+
+    this._checkSanity()
+
     for (let i in obj) {
       if (!this.get(i)) {
         this.set(i, obj[i])
@@ -65,9 +66,13 @@ class SessionStorageService {
     }
   }
 
+  setPrefix(prefix) {
+    this.prefix = prefix
+  }
+
   get(key) {
     let dashed = this._addDashInBetween(key)
-    let concatenated = this._concat(NAME, dashed)
+    let concatenated = this._concat(this.prefix, dashed)
 
     if (this.isEnabled) {
       return this._stringToBoolean(window.sessionStorage.getItem(concatenated))
@@ -78,7 +83,7 @@ class SessionStorageService {
 
   set(key, val) {
     let dashed = this._addDashInBetween(key)
-    let concatenated = this._concat(NAME, dashed)
+    let concatenated = this._concat(this.prefix, dashed)
 
     if (this.isEnabled) {
       window.sessionStorage.setItem(concatenated, val)
@@ -125,7 +130,7 @@ class SessionStorageService {
    */
   _checkSanity() {
     try {
-      window.sessionStorage.setItem(`${NAME}-sanityChecked`, 'true')
+      window.sessionStorage.setItem(`${this.prefix}-sanityChecked`, 'true')
       this.isEnabled = true
     } catch(err) {
       this.isEnabled = false
