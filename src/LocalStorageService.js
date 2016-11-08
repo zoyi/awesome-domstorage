@@ -56,7 +56,7 @@ class LocalStorageService {
     if (prefix) {
       this.setPrefix(prefix)
     }
-  
+
     this._checkSanity()
 
     for (let i in obj) {
@@ -65,7 +65,7 @@ class LocalStorageService {
       }
     }
   }
-  
+
   setPrefix(prefix) {
     this.prefix = prefix
   }
@@ -94,16 +94,17 @@ class LocalStorageService {
 
   getWithExpiration(key) {
     const time = this.get(`${key}-!#ExpirationTime#!`)
-    if (time && (Number(time) >= Number(moment().format('x')))) {
+    if (time && (+moment().format('x') >= +time)) {
       this.set(key, this.get(`${key}-!#ExpirationValue#!`))
       this.set(`${key}-!#ExpirationTime#!`, 'null')
     }
     return this.get(key)
   }
 
-  setWithExpiration(key, val, expirationTime, valueAfterExpiration = 'null') {
+  setWithExpiration(key, val, expirationTerm /* seconds */, valueAfterExpiration = 'null') {
+    const expirationTime = +moment().format('x') + expirationTerm * 1000
     this.set(key, val)
-    this.set(`${key}-!#ExpirationTime#!`, expirationTime)
+    this.set(`${key}-!#ExpirationTime#!`, String(expirationTime))
     this.set(`${key}-!#ExpirationValue#!`, valueAfterExpiration)
   }
 
