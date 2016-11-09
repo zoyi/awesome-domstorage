@@ -26,16 +26,16 @@ In this case, 'foo' of 'key1' becomes 'key1-foo' with value 'false'.
 Note that Web Storage can only have string value NOT boolean. However,
 'false' (string) becomes false (boolean) by calling stringToBoolean().
 
-In case where the Web Storage cannot be used, this service generates
-its own temporary storage object to store the configuration. Temporary storage
-expires every time the web page is refreshed, though.
 
 setPrefix() to set prefix for each key in order to avoid potential conflicts.
 e.g. Using the aforementioned example, 'key1-foo' is prefixed with 'myApp'
     'myApp-key1-foo' = false
     ...
-
-
+    
+## Emergency Storage of its own
+In case where the Web Storage cannot be used, this service generates
+its own temporary storage object to store the configuration. Temporary storage
+expires every time the web page is refreshed, though.
 
 # Usage
 ```
