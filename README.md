@@ -1,12 +1,14 @@
 # awesome-domstorage
+version 1.1.5
+
 awesome-domstorage provides an abstraction for two web storages built in modern web browsers:
 LocalStorage and SessionStorage
-
-Guide on how to install and use will be updated later on.
 
 LocalStorageService (SessionStorageService) provides an abstraction for Web storage (Dom storage) of a web browser.
 The difference between the two storage services is the web storage (built-in) handled.
 
+
+## Multi-Layer Structuring of Key-Value Pairs
 Knowing that Web Storage is of only a single layer structure, this service
 helps nested structuring of key-value pairs by filling dashes in-between.
 
@@ -24,10 +26,13 @@ e.g. You might want to have a structure like the following,
 ```
 
 In this case, 'foo' of 'key1' becomes 'key1-foo' with value 'false'.
-Note that Web Storage can only have string value NOT boolean. However,
+
+## Casting
+Note that Web Storage can only have STRING value NOT BOOLEAN. However,
 'false' (string) becomes false (boolean) by calling stringToBoolean().
+'null'(string) becomes null (null) as well.
 
-
+## Protected Namespace
 setPrefix() to set prefix for each key in order to avoid potential conflicts.
 e.g. Using the aforementioned example, 'key1-foo' is prefixed with 'myApp'
     'myApp-key1-foo' = false
