@@ -1,8 +1,14 @@
-import LocalStorageService from './LocalStorageService'
-import SessionStorageService from './SessionStorageService'
+/**
+ * awesome-domstorage
+ * Since Oct 2016.
+ * @repository https://github.com/zoyi/awesome-domstorage
+ * @npm https://www.npmjs.com/package/awesome-domstorage
+ * Written by Engine enginehenryed@gmail.com, Luan luan@zoyi.co, Sean lsw9549@gmail.com
+ */
 
-export {
-  LocalStorageService as LocalStorage,
-  SessionStorageService as SessionStorage
+import StorageService from './StorageService'
+
+module.exports = {
+  LocalStorage: new StorageService('local'),
+  SessionStorage: new StorageService('session')
 }
-
