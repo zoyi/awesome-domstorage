@@ -1,3 +1,4 @@
+# awesome-domstorage
 awesome-domstorage provides an abstraction for two web storages built in modern web browsers:
 LocalStorage and SessionStorage
 
@@ -32,10 +33,16 @@ e.g. Using the aforementioned example, 'key1-foo' is prefixed with 'myApp'
     'myApp-key1-foo' = false
     ...
     
-## Emergency Storage of its own
+## Emergency Storage of Its Own
 In case where the Web Storage cannot be used, this service generates
 its own temporary storage object to store the configuration. Temporary storage
 expires every time the web page is refreshed, though.
+
+# How to install
+https://www.npmjs.com/package/awesome-domstorage
+```
+npm install awesome-domstorage
+```
 
 # Usage
 ```
