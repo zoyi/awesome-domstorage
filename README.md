@@ -10,7 +10,7 @@ Knowing that Web Storage is of only a single layer structure, this service
 helps nested structuring of key-value pairs by filling dashes in-between.
 
 e.g. You might want to have a structure like the following,
-'''
+```
    {'key1': {
       'foo': 'false',
       'bar': 'true'
@@ -20,7 +20,7 @@ e.g. You might want to have a structure like the following,
     }
     ...
    }
-'''
+```
 
 In this case, 'foo' of 'key1' becomes 'key1-foo' with value 'false'.
 Note that Web Storage can only have string value NOT boolean. However,
@@ -37,7 +37,8 @@ e.g. Using the aforementioned example, 'key1-foo' is prefixed with 'myApp'
 
 
 
-'''
+# Usage
+```
 import { LocalStorage, SessionStorage} from 'awesome-domstorage'
 
 const NAME = 'your-app'
@@ -45,5 +46,4 @@ LocalStorage.init({foo: 'bar'}, NAME)
 LocalStorage.set(['container' 'star'], 'shining')
 
 var starIs = LocalStorage.get(['container', 'star'])
-
-'''
+```
