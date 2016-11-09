@@ -38,7 +38,7 @@ In case where the Web Storage cannot be used, this service generates
 its own temporary storage object to store the configuration. Temporary storage
 expires every time the web page is refreshed, though.
 
-# How to install
+# Install
 https://www.npmjs.com/package/awesome-domstorage
 ```
 npm install awesome-domstorage
