@@ -55,7 +55,7 @@ import { LocalStorage, SessionStorage} from 'awesome-domstorage'
 
 const NAME = 'your-app'
 LocalStorage.init({foo: 'bar'}, NAME)
-LocalStorage.set(['container' 'star'], 'shining')
+LocalStorage.set(['container', 'star'], 'shining')
 
 var starIs = LocalStorage.get(['container', 'star'])
 ```
