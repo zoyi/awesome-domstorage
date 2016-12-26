@@ -118,7 +118,7 @@ class StorageService {
     } else if (val === 'null') {
       return this._stringToNull(val)
     } else if (val === 'undefined') {
-      return this._stringToUnefined(val)
+      return this._stringToUndefined(val)
     } else {
       return val
     }
