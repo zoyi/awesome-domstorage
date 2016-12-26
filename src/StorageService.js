@@ -117,6 +117,8 @@ class StorageService {
       return this._stringToBoolean(val)
     } else if (val === 'null') {
       return this._stringToNull(val)
+    } else if (val === 'undefined') {
+      return this._stringToUnefined(val)
     } else {
       return val
     }
@@ -151,7 +153,14 @@ class StorageService {
       return val
     }
   }
-
+  
+  _stringToUndefined(val) {
+    if (val === 'undefined') {
+      return undefined
+    } else {
+      return val
+    }
+  }
 }
 
 export default StorageService
