@@ -1,6 +1,6 @@
 {
   "name": "awesome-domstorage",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "main": "./lib/index.js",
   "scripts": {
     "build": "npm run clean && babel src -d lib --sourceMaps 'both'",
