@@ -1,5 +1,4 @@
 # awesome-domstorage
-version 1.1.5
 
 awesome-domstorage provides an abstraction for two web storages built in modern web browsers:
 LocalStorage and SessionStorage
@@ -37,7 +36,7 @@ setPrefix() to set prefix for each key in order to avoid potential conflicts.
 e.g. Using the aforementioned example, 'key1-foo' is prefixed with 'myApp'
     'myApp-key1-foo' = false
     ...
-    
+
 ## Emergency Storage of Its Own
 In case where the Web Storage cannot be used, this service generates
 its own temporary storage object to store the configuration. Temporary storage

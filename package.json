@@ -4,7 +4,9 @@
   "main": "./lib/index.js",
   "scripts": {
     "build": "npm run clean && babel src -d lib --sourceMaps 'both'",
-    "clean": "rm -rf ./lib"
+    "test": "mocha tests/**/*.test.js --compilers js:babel-core/register",
+    "clean": "rm -rf ./lib",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "moment": "^2.13.0"
@@ -30,6 +32,8 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-plugin-remove-comments": "^2.0.0",
-    "babel-preset-latest": "^6.16.0"
+    "babel-preset-latest": "^6.16.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
   }
 }
