@@ -4,7 +4,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "build": "npm run clean && babel src -d lib --sourceMaps 'both'",
-    "test": "mocha tests/**/*.test.js --compilers js:babel-core/register",
+    "test": "mocha --compilers js:babel-core/register tests/**/*.test.js",
     "clean": "rm -rf ./lib",
     "prepublish": "npm run build"
   },
@@ -34,6 +34,7 @@
     "babel-plugin-remove-comments": "^2.0.0",
     "babel-preset-latest": "^6.16.0",
     "chai": "^3.5.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "mock-local-storage": "^1.0.2"
   }
 }

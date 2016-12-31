@@ -1,6 +1,6 @@
 /* External Dependencies */
 import moment from 'moment'
-  
+
 /**
  * Object to be used when the web storage is not available, e.g. in secret mode of Safari.
  */
@@ -9,15 +9,13 @@ let _tempStorage = {}
 class StorageService {
 
   constructor(storage) {
+    this.storage = storage
     this.storageIsAvailable = false
     this.isInitialized = false
-    this.storage = {}
     this.prefix = ''
-    
-    this._setStorage(storage)
   }
-  
-  
+
+
   /**********************************************
    * Public methods
    **********************************************/
@@ -57,7 +55,7 @@ class StorageService {
     } else {
       let dashed = this._addDashInBetween(key)
       let concatenated = this._concat(this.prefix, dashed)
-  
+
       if (this.storageIsAvailable) {
         this.storage.setItem(concatenated, val)
       } else {
@@ -128,14 +126,6 @@ class StorageService {
     return `${prefix}-${arr}`
   }
 
-  _setStorage(storage) {
-    if (storage === 'local') {
-      this.storage = window.localStorage
-    } else if (storage === 'session') {
-      this.storage = window.sessionStorage
-    }
-  }
-
   _stringToBoolean(val) {
     if (val === 'true') {
       return true
@@ -153,7 +143,7 @@ class StorageService {
       return val
     }
   }
-  
+
   _stringToUndefined(val) {
     if (val === 'undefined') {
       return undefined

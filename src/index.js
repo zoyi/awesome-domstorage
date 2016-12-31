@@ -9,6 +9,6 @@
 import StorageService from './StorageService'
 
 module.exports = {
-  LocalStorage: new StorageService('local'),
-  SessionStorage: new StorageService('session')
+  LocalStorage: new StorageService(window.localStorage),
+  SessionStorage: new StorageService(window.sessionStorage)
 }
