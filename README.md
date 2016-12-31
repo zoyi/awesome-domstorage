@@ -42,6 +42,14 @@ In case where the Web Storage cannot be used, this service generates
 its own temporary storage object to store the configuration. Temporary storage
 expires every time the web page is refreshed, though.
 
+## Expiration time
+setWithExpiration() and getWithExpiration() provides expiration time.
+```
+setWithExpiration('key', 'value', 30 /* seconds */, null /* valueAfterExpiration */)
+getWithExpiration('key') // is 'value' before 30 seconds
+getWithExpiration('key') // is null after 30 seconds
+```
+
 # Install
 https://www.npmjs.com/package/awesome-domstorage
 ```

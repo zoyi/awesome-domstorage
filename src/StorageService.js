@@ -122,8 +122,8 @@ class StorageService {
     }
   }
 
-  _concat(prefix, arr) {
-    return `${prefix}-${arr}`
+  _concat(prefix, key) {
+    return prefix ? `${prefix}-${key}` : key
   }
 
   _stringToBoolean(val) {
