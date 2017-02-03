@@ -26,8 +26,8 @@ class StorageService {
     if (prefix) {
       this.setPrefix(prefix)
     }
-    this.isInitialized = true // order matters. This should be preceded by any other setItem()s
     this._checkSanity()
+    this.isInitialized = true // order matters. This should be preceded by any other setItem()s
 
     for (let i in obj) {
       if (!this.get(i)) {
